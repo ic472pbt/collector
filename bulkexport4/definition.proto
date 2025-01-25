@@ -1,0 +1,27 @@
+﻿syntax = "proto3";
+
+service VisionPictureSource {
+  rpc SendPictures(Start) returns (stream Svdmp);
+}
+
+message Svdmp
+{
+  bytes picture = 1; // Cropped picture as PNG
+  SvdmpData svdmpData = 2;
+  Measures measures = 3;
+}
+
+message SvdmpData {
+  string hashcode = 1;
+  string componentName = 2;
+}
+
+message Measures
+{
+  double sizeX = 1;
+  double sizeY = 2;
+}
+
+message Start{
+	string Go = 1;
+}

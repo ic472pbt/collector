@@ -1,0 +1,95 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net461</TargetFramework>
+    <Description>Bulkexport service collecting svdmp files. .Net 4.6 build</Description>
+    <PackageId>bulkexport</PackageId>
+    <Authors>Pavel Tatarintsev</Authors>
+    <Company>Cyboard</Company>
+    <Product>bulkexport service</Product>
+    <RepositoryUrl>https://gitlab.com/cybord1/ai-algos/bulk_export</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <AssemblyName>bulkexport</AssemblyName>
+    <Version>1.1.1</Version>
+    <Configurations>Debug;Release;SharedRead;AsecDelay;FilesBack</Configurations>
+
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;GRPC</DefineConstants>
+    <OutputPath>Install</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;GRPC</DefineConstants>
+    <OutputPath>Install</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FilesBack|AnyCPU'">
+    <DefineConstants>TRACE;BACK</DefineConstants>
+    <OutputPath>Install</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AsecDelay|AnyCPU'">
+    <DefineConstants>TRACE;ASEC</DefineConstants>
+    <OutputPath>Install</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SharedRead|AnyCPU'">
+    <DefineConstants>TRACE;SHARED</DefineConstants>
+    <OutputPath>Install</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Protobuf Include="definition.proto" GrpcServices="Server" Link="stream.proto" />
+    <Compile Include="modules\GrpcModule.fs" />
+    <Compile Include="..\bulkexport3\modules\Records.fs" Link="modules\Records.fs" />
+    <Compile Include="..\bulkexport3\modules\Diagnostics.fs" Link="modules\Diagnostics.fs" />
+    <Compile Include="..\bulkexport3\modules\DSL.fs" Link="modules\DSL.fs" />
+    <Compile Include="..\bulkexport3\modules\Fuji.fs" Link="modules\Fuji.fs" />
+    <Compile Include="..\bulkexport3\modules\Service.fs" Link="modules\Service.fs" />
+    <Compile Include="..\bulkexport3\modules\Funcs.fs" Link="modules\Funcs.fs" />
+    <Compile Include="..\bulkexport3\modules\UIC.fs" Link="modules\UIC.fs" />
+    <Compile Include="modules\Jobs\JobsGrpc.fs" />
+    <Compile Include="..\bulkexport3\modules\Jobs\Jobs.fs" Link="modules\Jobs\Jobs.fs" />
+    <None Include="..\bulkexport3\Install\BatchSubstitute.bat" Link="BatchSubstitute.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\bulkexport3\Install\install.bat" Link="install.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\bulkexport3\Install\reconfig.bat" Link="reconfig.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\bulkexport3\Install\uninstall.bat" Link="uninstall.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\bulkexport3\Install\xpath.bat" Link="xpath.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="..\bulkexport3\Program.fs" Link="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DotNetZip" Version="1.15.0" />
+    <PackageReference Include="Grpc-FSharp.Tools" Version="0.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Grpc.Core" Version="2.41.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
+    <PackageReference Include="Protobuf.FSharp" Version="0.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="5.0.0" />
+    <PackageReference Update="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Install\" />
+  </ItemGroup>
+</Project>

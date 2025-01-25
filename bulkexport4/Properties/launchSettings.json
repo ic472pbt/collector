@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "bulkexport4": {
+      "commandName": "Project",
+      "commandLineArgs": "c:\\Sirio\\Work\\SvDumpFiles\\PartCameraDumps  r:\\target2 100 -v -r -d"
+    }
+  }
+}

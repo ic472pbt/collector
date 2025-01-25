@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>f7db1b69-a137-4156-ba22-42f796088d5a</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BulkExport</RootNamespace>
+    <AssemblyName>BulkExport</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseStandardResourceNames>true</UseStandardResourceNames>
+    <WarningsAsErrors>3239;$(WarningsAsErrors)</WarningsAsErrors>
+    <Name>BulkExport</Name>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>c:\Sirio\Work\SvDumpFiles\PartCameraDumps  r:\target2 100 -v -r -d</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
+    <OutputPath>Install\</OutputPath>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>c:\Sirio\Work\SvDumpFiles\PartCameraDumps  r:\target2 100 -v -r -d</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(FSharpTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets') ">
+    <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>c:\Sirio\Work\SvDumpFiles  r:\temp 10 -r -v</StartArguments>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>Install\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>r:\target \\enemigo-gp\zip 1000 -v</StartArguments>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SharedRead|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DefineConstants>TRACE;SHARED</DefineConstants>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>c:\Sirio\Work\SvDumpFiles\PartCameraDumps  r:\target2 100 -v -r -d</StartArguments>
+    <OutputPath>bin\SharedRead\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SharedRead|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <DefineConstants>TRACE;NOHDD</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile />
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>r:\target \\enemigo-gp\zip 1000 -v</StartArguments>
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\SharedRead\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AsecDelay|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DefineConstants>TRACE;ASEC</DefineConstants>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>c:\Sirio\Work\SvDumpFiles\PartCameraDumps  r:\target2 100 -v -r -d</StartArguments>
+    <OutputPath>bin\AsecDelay\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AsecDelay|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <DefineConstants>TRACE;NOHDD</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile />
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>r:\target \\enemigo-gp\zip 1000 -v</StartArguments>
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\AsecDelay\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'FilesBack|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DefineConstants>TRACE;BACK</DefineConstants>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>c:\Sirio\Work\SvDumpFiles\PartCameraDumps  r:\target2 100 -v -r -d</StartArguments>
+    <OutputPath>bin\FilesBack\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'FilesBack|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <DefineConstants>TRACE;NOHDD</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile />
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <Prefer32Bit>true</Prefer32Bit>
+    <StartArguments>r:\target \\enemigo-gp\zip 1000 -v</StartArguments>
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\FilesBack\</OutputPath>
+  </PropertyGroup>
+  <Target Name="Build">
+  </Target>
+  <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
+  <ItemGroup>
+    <Compile Include="modules\DSL.fs" />
+    <Compile Include="modules\Funcs.fs" />
+    <Compile Include="modules\UIC.fs" />
+    <Compile Include="modules\Service.fs" />
+    <Compile Include="modules\Fuji.fs" />
+    <Compile Include="modules\Records.fs" />
+    <Compile Include="modules\Diagnostics.fs" />
+    <Compile Include="modules\Jobs\Jobs.fs" />
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Program.fs" />
+    <None Include="App.config" />
+    <Content Include="packages.config" />
+    <None Include="Install\install.bat" />
+    <None Include="Install\BatchSubstitute.bat" />
+    <None Include="Install\reconfig.bat" />
+    <None Include="Install\xpath.bat" />
+    <None Include="Install\uninstall.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DotNetZip">
+      <HintPath>C:\Users\q\source\repos\bulk_export\packages\DotNetZip.1.12.0\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core">
+      <HintPath>C:\Users\q\source\repos\bulk_export\packages\FSharp.Core.4.1.18\lib\net20\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <WarnOn>3390;$(WarnOn)</WarnOn>
+    <AssemblyName>bulkexport</AssemblyName>
+    <AssemblyVersion>4.3.1.4</AssemblyVersion>
+    <FileVersion>4.3.1.4</FileVersion>
+    <PlatformTarget>x86</PlatformTarget>
+    <FSharpPrefer64BitTools>False</FSharpPrefer64BitTools>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;GRPC</DefineConstants>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Install\uninstall.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Install\install.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="modules\OIB.fs" />
+    <AdditionalFiles Include="modules\samples\Board_2023-04-30-13.46.33_10821.essential.xml" />
+    <AdditionalFiles Include="modules\samples\0c149ff6-e7c4-4a0e-9cd3-158244406713.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </AdditionalFiles>
+    <AdditionalFiles Include="modules\samples\2a9edc3b-d8d6-444c-b748-67806e179010.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </AdditionalFiles>
+    <Compile Include="modules\Recipe.fs" />
+    <Compile Include="modules\XmlModule.fs" />
+    <Compile Include="modules\Service.fs" />
+    <Compile Include="..\bulkexport3\modules\DSL.fs" Link="modules\DSL.fs" />
+    <Compile Include="modules\Records.fs" />
+    <Compile Include="modules\Diagnostics.fs" />
+    <Compile Include="..\bulkexport3\modules\Fuji.fs" Link="modules\Fuji.fs" />
+    <Compile Include="..\bulkexport3\modules\Funcs.fs" Link="modules\Funcs.fs" />
+    <Compile Include="..\bulkexport3\modules\UIC.fs" Link="modules\UIC.fs" />
+    <Compile Include="modules\Jobs\JobsGrpc.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser.FSharp" Version="2.9.1" />
+    <PackageReference Include="Core.System.Configuration.Install" Version="1.1.0" />
+    <PackageReference Include="FSharp.Data" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+    <PackageReference Include="System.Diagnostics.EventLog" Version="6.0.0" />
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="6.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.fsproj" />
+    <ProjectReference Include="..\EmittingService\EmittingService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="7.0.200" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="definition.proto" GrpcServices="Server" Link="greet.proto" />
+  </ItemGroup>
+
+</Project>

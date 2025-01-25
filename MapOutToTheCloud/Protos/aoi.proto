@@ -1,0 +1,32 @@
+﻿syntax = "proto3";
+option csharp_namespace = "MapOutToHdd";
+
+service VisionPictureSource {
+  rpc SendPictures(Void) returns (stream Component);
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message HealthCheckRequest {
+  string service = 1;
+}
+message HealthCheckResponse {
+  enum ServingStatus {
+    UNKNOWN = 0;
+    SERVING = 1;
+    NOT_SERVING = 2;
+    SERVICE_UNKNOWN = 3;  // Used only by the Watch method.
+  }
+  ServingStatus status = 1;
+  string MachineName = 2;
+}
+
+message Component
+{
+  bytes picture = 1; // pic as JPG
+  string timestamp = 2;
+  string pictureFileName = 3;
+  string pictureDirectory = 4;
+}
+
+message Void {
+}

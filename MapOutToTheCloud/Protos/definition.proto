@@ -1,0 +1,104 @@
+﻿syntax = "proto3";
+option csharp_namespace = "MapOutToHdd"; 
+
+service VisionPictureSource {
+  rpc SendPictures(Void) returns (stream Component);
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message HealthCheckRequest {
+  string service = 1;
+}
+message HealthCheckResponse {
+  enum ServingStatus {
+    UNKNOWN = 0;
+    SERVING = 1;
+    NOT_SERVING = 2;
+    SERVICE_UNKNOWN = 3;  // Used only by the Watch method.
+  }
+  ServingStatus status = 1;
+}
+
+message Component
+{
+  bytes picture = 1; // pic as PNG
+  string hashkey = 2; 
+  string componentName = 3;
+  string packageCase = 4;
+  string packaging = 5; // Reel, Tray...
+  ComponentMeasures componentMeasures = 6;
+  ImageProperties imageProperties = 7;
+  BoardPlacement boardPlacement = 8;
+  bool isDumped = 9; // 'True' if the component was not placed on board
+  string timestamp = 10;
+  Lead Lead1 = 11;
+  Lead Lead2 = 12;
+  string DipfType = 13;
+  string SourceFolder = 14;
+  string svdmp = 15;
+}
+
+message ComponentMeasures
+{
+  int64 sizeX = 1; // size in nano-meters
+  int64 sizeY = 2; // nm
+}
+
+message FloatVector
+{
+  float X = 1; 
+  float Y = 2; 
+}
+
+message ImageProperties {
+  float componentCenterX = 1; // position of the component in image, in pixels
+  float componentCenterY = 2;
+  float scaleX = 3;
+  float scaleY = 4;
+  double angle = 5; // angle of the component in the image
+  double orientation = 6; // angle of the image
+  int64 binning = 7; //pixels binning factor
+  int64 bodyRectW = 8; // width
+  int64 bodyRectH = 9; // and height of the body
+}
+
+enum BoardSide {
+    COMPONENT_SIDE = 0;
+    PRINT_SIDE = 1;
+}
+
+message BoardPlacement {
+  string boardName = 1;
+  BoardSide boardSide = 2;
+  string barcode = 3;
+  string panelId = 4;
+  LocationOnBoard location = 5; // Location on the board/panel
+  string refdes = 6; // Reference Designator
+  int64 boardId = 7;
+  int64 panelMatrixOID = 8;
+}
+
+message LocationOnBoard {
+  int64 posX = 1;
+  int64 posY = 2;
+  int64 posA = 3;
+}
+
+message LeadPosition{
+    string Type = 1;
+    float Angle = 2;
+    FloatVector Size = 3;
+}
+
+message Lead{
+    int64 number = 1;
+    int64 numOfGrids = 2; //for grid leads
+    float pitch = 3;
+    float groupPitch = 4; //for grid leads
+    FloatVector Vector = 5;
+    float angle = 6; //<deg>
+    LeadPosition Position = 7;
+}
+
+message Void {
+}

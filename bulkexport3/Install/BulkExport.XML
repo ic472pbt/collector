@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>BulkExport</name></assembly>
+<members>
+<member name="M:Bulkexport.DSL.op_PlusPlus(Microsoft.FSharp.Core.FSharpRef{System.Int32})">
+<summary>
+Increment operator
+</summary>
+</member>
+<member name="M:Bulkexport.DSL.op_BangDot(System.String)">
+<summary>
+Path.GetExtension
+</summary>
+</member>
+<member name="M:Bulkexport.DSL.op_BangDivideDivide(System.String)">
+<summary>
+Path.GetDirectoryName
+</summary>
+</member>
+<member name="M:Bulkexport.DSL.op_BangDivide(System.String)">
+<summary>
+Path.GetFileName
+</summary>
+</member>
+<member name="M:Bulkexport.DSL.op_HatDivide(System.String,System.String)">
+<summary>
+Path.Combine
+</summary>
+</member>
+<member name="P:Bulkexport.DSL.StraightDeg">
+<summary>
+180 degrees
+</summary>
+</member>
+<member name="P:Bulkexport.DSL.ZeroDeg">
+<summary>
+0 degrees
+</summary>
+</member>
+<member name="P:Bulkexport.DSL.OneDeg">
+<summary>
+1 degree
+</summary>
+</member>
+<member name="M:Bulkexport.Funcs.badFilesClenerFun(System.String,System.Double,System.Timers.ElapsedEventArgs)">
+<summary>
+remove old bad files
+</summary>
+</member>
+<member name="M:Bulkexport.Funcs.selectNode``1(Microsoft.FSharp.Core.FSharpFunc{System.String,``0},System.String,System.Int32,System.String)">
+<summary>
+Extract value from a xml tag
+</summary>
+</member>
+<member name="M:Bulkexport.Funcs.rotateRectangle(System.Double,System.Drawing.Rectangle)">
+<summary>
+Rotate rectangle clockwise in coordinate system of screen.
+</summary>
+</member>
+<member name="M:Bulkexport.Funcs.rotate(System.Double,System.Single,System.Single)">
+<summary>
+Rotate point clockwise in coordinate system of screen.
+</summary>
+</member>
+<member name="M:Bulkexport.Funcs.isNozzle(System.IO.MemoryStream)">
+<summary>
+Check svdmp file contains nozzle image
+</summary>
+</member>
+<member name="M:Bulkexport.Funcs.erroneousSvdmp(System.IO.MemoryStream)">
+<summary>
+Check svdmp file for an error
+</summary>
+</member>
+<member name="T:Bulkexport.Funcs">
+<summary>
+Critical testable functions
+</summary>
+</member>
+<member name="P:Bulkexport.UIC.Parser.Theta">
+<summary>
+Expected angle
+</summary>
+</member>
+<member name="P:Bulkexport.UIC.Parser.Angle">
+<summary>
+Angle correction
+</summary>
+</member>
+<member name="M:Bulkexport.UIC.cptol(System.Double,System.Double,System.Double)">
+<summary>
+Check the measurmement equals some value within tolerance.
+</summary>
+</member>
+<member name="T:Bulkexport.Service.ExportServiceInstaller">
+<summary>
+Service installer/uninstaller class
+</summary>
+</member>
+<member name="P:Bulkexport.Fuji.Parser.Mosaics">
+<summary>
+Coordinates of the raw images on the pane
+</summary>
+</member>
+<member name="P:Bulkexport.Fuji.Parser.Image">
+<summary>
+Fuji jpg image
+</summary>
+</member>
+<member name="M:Bulkexport.Fuji.advance(System.Int64,System.IO.MemoryStream)">
+<summary>
+stream advance to desired number of bytes
+</summary>
+</member>
+<member name="M:Bulkexport.Fuji.l2b(System.Byte[])">
+<summary>
+litle-endian to big-endian converter
+</summary>
+</member>
+<member name="T:Bulkexport.Records.FileNameMsg">
+<summary>Message envelope.
+<para> <c>Die</c> - Signal for handler to stop it's work.</para>
+<para> <c>FileName</c> - A mesage for file mover agent. File name * date and time * time to delay.</para>
+<para> <c>FileStream</c> - A mesage for zip archiver agent. Stream to compress * name * path * tries * date and time.</para>
+</summary>
+</member>
+<member name="P:Bulkexport.Records.zeroPair">
+<summary>
+Empty bmp-xml couple
+</summary>
+</member>
+<member name="T:Bulkexport.Diagnostics.DiagMessage">
+<summary>Diagnostics message priority.
+<para> <c>Low</c> - Message with low priority displayed only in verbose mode.</para>
+<para> <c>High</c> - Mesage with high priority always displayed.</para>
+</summary>
+</member>
+<member name="M:Bulkexport.Diagnostics.diagnosticsAgent(System.Boolean)">
+<summary>
+Agent what prints out diagnostic messages.
+Messages with low priority printed in verbose mode only. Messages with high priority always printed.
+</summary>
+</member>
+<member name="T:Bulkexport.Jobs.MainJob">
+<summary>Service worker</summary>
+<param name="sourceDir">Path to directory where to pick up new files</param>
+<param name="netDir">Network path (or local) where to send zip files.</param>
+<param name="foldSize">Number of packed files in one zip.</param>
+<param name="disableRecipe">Do not collect recipe files.</param>
+<param name="recursiveWatching">Recursive directory monitoring.</param>
+<param name="cLevel">Zip compession level.</param>
+<param name="verbose">Display messages with low priority.</param>
+<param name="badFilesSchedule">Bad files clearing interval (hours).</param>
+</member>
+<member name="P:Bulkexport.Jobs.event">
+<summary>
+Event for threads synchronization
+</summary>
+</member>
+<member name="P:Bulkexport.Jobs.compressorKicker">
+<summary>
+force zip to finalize every 10 min
+</summary>
+</member>
+<member name="P:Bulkexport.Jobs.cleanerKicker">
+<summary>
+retry cleaner kicker for every 0.5s
+</summary>
+</member>
+<member name="P:Bulkexport.Jobs.globalTime">
+<summary>
+Timer for time to delay (ttd)
+</summary>
+</member>
+</members>
+</doc>

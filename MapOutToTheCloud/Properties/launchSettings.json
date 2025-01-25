@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MapOutToTheCloud": {
+      "commandName": "Project",
+      "commandLineArgs": "--console"
+    }
+  }
+}

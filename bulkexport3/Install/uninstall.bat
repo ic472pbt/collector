@@ -1,0 +1,9 @@
+@echo off
+echo Create stopping task...
+schtasks /create /xml "bulk export stop.xml" /tn "Bulk export stop" 
+echo Run stopping task...
+schtasks /run /tn "Bulk export stop"
+bulkexport uninstall
+REM Remove old task
+echo Remove stopping task...
+schtasks /delete /F /tn "Bulk export stop"
